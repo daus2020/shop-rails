@@ -1,4 +1,10 @@
 <h2>Products</h2>
 
 
-<%= Date.today %>
+<%= @products.count %>
+
+
+<% @products.each do |product| %>
+  <h2><%= product.title %></h2> 
+  <span>US$<%= product.price %></span> 
+<% end %>
