@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  description: MyText
-  price: 1
+ps3:
+  title: PS3 Fat
+  description: PS3 one joystick
+  price: 95
 
-two:
-  title: MyString
-  description: MyText
-  price: 1
+switch:
+  title: Nintendo switch
+  description: ok only lines in surface
+  price: 180

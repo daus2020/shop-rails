@@ -1,10 +1,12 @@
 <h2>Products</h2>
 
 
-<%= @products.count %>
+<!-- <%= @products.count %> -->
 
 
 <% @products.each do |product| %>
-  <h2><%= product.title %></h2> 
-  <span>US$<%= product.price %></span> 
+  <%= link_to product_path(product.id), class: 'product' do %>
+    <h2><%= product.title %></h2> 
+    <span>US$<%= product.price %></span> 
+  <% end %>
 <% end %>
