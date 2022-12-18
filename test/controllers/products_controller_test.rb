@@ -48,4 +48,39 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :unprocessable_entity
   end
+
+  test 'render an edit product form' do
+    get edit_product_path(products(:ps3))
+
+    assert_response :success
+    assert_select 'form'
+  end
+
+  test 'allows to update a product' do
+    patch product_path(products(:ps3)), params: {
+      product: {
+        price: 95
+      }
+    }
+    assert_redirected_to products_path
+    assert_equal flash[:notice], 'Product successfully updated'
+  end
+
+  test 'does not allow to update a product with invalid field' do
+    patch product_path(products(:ps3)), params: {
+      product: {
+        price: nil
+      }
+    }
+    assert_response :unprocessable_entity
+  end
+
+  test 'can delete a product' do
+    assert_difference('Product.count', -1) do
+      delete product_path(products(:ps3))
+    end
+
+    assert_redirected_to products_path
+    assert_equal flash[:notice], 'Product was successfuly deleted'
+  end
 end
